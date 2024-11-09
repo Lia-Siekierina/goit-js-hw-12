@@ -7,6 +7,8 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 const form = document.querySelector('.js-search');
 export const gallery = document.querySelector('.gallery')
+// const bottomLoader = document.querySelector('#bottom-load');
+// const noResultSelector = document.querySelector('#no-results')
 
 
 let query = '';
@@ -21,3 +23,18 @@ form.addEventListener('submit', e => {
     if (inputValue.trim() === '') return;
     fetchImages(inputValue, renderGallery);
 });
+
+
+
+// const smoothScroll = () => {
+//     const galleryItem = document.querySelector('.gallery-item');
+
+//     if (galleryItem) {
+//         const itemHeight = galleryItem.getBoundingClientRect().height;
+
+//         window.scrollBy({
+//             top: itemHeight * 2,
+//             behavior: 'smooth',
+//         });
+//     }
+// };

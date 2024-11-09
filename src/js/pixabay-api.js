@@ -6,6 +6,7 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 const API_KEY = '46816597-00495df87fc70f19aecba95fd';
 const loader = document.querySelector('.loader');
+const loadMoreBtn = document.querySelector('.load-more-btn');
 
 function fetchImages(query, renderFn) {
     
