@@ -9,6 +9,9 @@ const form = document.querySelector('.js-search');
 export const gallery = document.querySelector('.gallery')
 
 
+let query = '';
+let page = 1;
+let per_page = 15;
 
 form.addEventListener('submit', e => {
     e.preventDefault();
