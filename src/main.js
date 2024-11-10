@@ -33,11 +33,18 @@ const smoothScroll = () => {
     const galleryItem = document.querySelector('.gallery-item');
     if (galleryItem) {
         const itemHeight = galleryItem.getBoundingClientRect().height;
+        console.log('Scrolling by:', itemHeight * 4);
+
+        setTimeout(() => {
         window.scrollBy({
             top: itemHeight * 2,
             behavior: 'smooth',
         });
-    }
+        console.log('Scrolled successfully');
+    },2000);
+} else {
+    console.log('No gallery items found for scrolling');
+}
 };
 
 const fetchRenderImages = async () => {
@@ -55,6 +62,10 @@ if (data.hits.length === 0) {
 renderGallery(data.hits);
 smoothScroll();
 page +=1;
+
+if (page > 1) {
+    smoothScroll();
+}
 
 if (data.hits.length < per_page || page > Math.ceil(data.totalHits / per_page)) {
     loadMore.classList.add('load-more-hidden');
