@@ -29,6 +29,17 @@ form.addEventListener('submit', e => {
     fetchRenderImages();
 });
 
+const smoothScroll = () => {
+    const galleryItem = document.querySelector('.gallery-item');
+    if (galleryItem) {
+        const itemHeight = galleryItem.getBoundingClientRect().height;
+        window.scrollBy({
+            top: itemHeight * 2,
+            behavior: 'smooth',
+        });
+    }
+};
+
 const fetchRenderImages = async () => {
     try {
         loader.style.display = 'block';
@@ -42,6 +53,7 @@ if (data.hits.length === 0) {
 }
 
 renderGallery(data.hits);
+smoothScroll();
 page +=1;
 
 if (data.hits.length < per_page || page > Math.ceil(data.totalHits / per_page)) {
@@ -59,15 +71,3 @@ if (data.hits.length < per_page || page > Math.ceil(data.totalHits / per_page)) 
 
 loadMore.addEventListener('click', fetchRenderImages);
 
-// const smoothScroll = () => {
-//     const galleryItem = document.querySelector('.gallery-item');
-
-//     if (galleryItem) {
-//         const itemHeight = galleryItem.getBoundingClientRect().height;
-
-//         window.scrollBy({
-//             top: itemHeight * 2,
-//             behavior: 'smooth',
-//         });
-//     }
-// };
